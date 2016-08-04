@@ -15,7 +15,8 @@ OBJS = $(SRCS:.cc=.o)
 TARGET = zdemo.bin
 
 CXX = g++
-DEBUG = -g -rdynamic -O0 -Werror
+#DEBUG = -g -rdynamic -O0 -Werror -DLOCAL_DEBUG
+DEBUG = -g -O0 -Werror -DLOCAL_DEBUG
 CXXFLAGS = -Wall -fPIC -std=c++11 $(DEBUG)
 INCLUDES = -I./
 LIBS = 
