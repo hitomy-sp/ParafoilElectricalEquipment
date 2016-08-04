@@ -1,11 +1,11 @@
 #include <iostream>
-#include "logger.h"
+#include "Logger.h"
 
 using namespace lib;
 
 int main(int argc, char *argv[]){
 
-	logger* logger = logger->get_instance();
+	Logger* logger = Logger::get_instance();
 
 	logger->debug("debug");
 	logger->info("info");

@@ -8,7 +8,7 @@ SHELL = /bin/sh
 SRCDIR = .
 
 SRCS = ./main.cc \
-		./logger.cc
+		./Logger.cc
 		
 OBJS = $(SRCS:.cc=.o)
 

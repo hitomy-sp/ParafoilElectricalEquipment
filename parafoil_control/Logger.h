@@ -3,10 +3,10 @@
 
 namespace lib {
 
-class logger {
+class Logger {
 
 public:
-	static logger* get_instance();
+	static Logger* get_instance();
 
 	void debug(std::string);
 	void info(std::string);
@@ -14,15 +14,15 @@ public:
 	void error(std::string);
 
 private:
-	static logger* instance;
+	static Logger* instance;
 
 	enum log_level {DEBUG=0, INFO, WARN, ERROR};
 	log_level current_level = log_level::INFO;
 
-	logger(){};
-	~logger(){};
-	logger(logger const&); // copy constructor
-	logger& operator=(logger const&); // operator
+	Logger(){};
+	~Logger(){};
+	Logger(Logger const&); // copy constructor
+	Logger& operator=(Logger const&); // operator
 	
 	void logging(log_level, std::string&);
 };

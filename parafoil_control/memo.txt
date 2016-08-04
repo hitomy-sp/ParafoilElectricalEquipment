@@ -1,0 +1,10 @@
+
+xxMain: loop -> 情報収集, アクション, NextState?
+
+Logic:
+  初期化
+  情報収集
+　アクション
+　nextstate
+
+
