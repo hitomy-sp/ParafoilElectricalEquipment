@@ -11,10 +11,18 @@ static void recv_callback(){
 	std::string tmpString = "";
 	while(gps_serial.readable())
 	{
-		tmpString += gps_serial.getc();
+		char tc = gps_serial.getc();
+		if(tc == '\n')
+		{
+			//電文1つ追加
+			gps_msg_list.push_back(tmpString);
+			
+		}else
+		{
+			tmpString += tc;
+		}
 	}
-
-	gps_msg_list.push_back(tmpString);
+	//改行コードまで送られてきていない電文は捨てる
 }
 
 void 		GpsSensor::init(){
@@ -39,7 +47,7 @@ lib::SensorMessage& GpsSensor::get_message(){
     list<string> result;
  
     int pos;
-    while((pos = str.find_first_of(delim)) != str.npos) {
+    while((pos = tmpString.find_first_of(delim)) != str.npos) {
         if(pos > 0) {
             result.push_back(str.substr(0, pos));
         }
