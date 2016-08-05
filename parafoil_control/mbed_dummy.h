@@ -31,7 +31,7 @@ public:
 	PwmOut(int p): pin(p){};
 
 	void period(float f){};
-	void write(floca f){};
+	void write(float f){};
 private:
 	int pin = -1;
 

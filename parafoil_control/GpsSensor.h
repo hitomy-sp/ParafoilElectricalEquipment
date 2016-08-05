@@ -1,11 +1,7 @@
 #ifndef _GPS_SENSOR_H_
 #define _GPS_SENSOR_H_
 
-#ifdef LOCAL_LINUX_DEBUG
-#include "mbed_dummy.h"
-#else
-#include "mbed.h"
-#endif
+#include "common.h"
 
 class GpsSensor : public lib::Sensor {
 

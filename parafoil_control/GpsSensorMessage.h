@@ -36,8 +36,8 @@ public:
 	void 		set_gps_speed_over_ground(double);
 	double		get_gps_speed_over_ground();
 
-	void 		set_gps_couse_over_ground(std::string);
-	double		get_gps_couse_over_ground();
+	void 		set_gps_course_over_ground(double);
+	double		get_gps_course_over_ground();
 
 	void 		set_gps_date(std::string);
 	std::string	get_gps_date();
@@ -64,7 +64,7 @@ private:
 	double 		gps_longitude = 0;
 	std::string gps_ew_indicator = "";
 	double		gps_speed_over_ground = 0; // knots
-	double		gps_couse_over_ground = 0; // degree
+	double		gps_course_over_ground = 0; // degree
 	std::string	gps_date = "";				// ddmmyy
 	double		gps_magnetic_variation = 0; // degree
 	std::string	gps_magnetic_ew_indicator = "";
