@@ -43,11 +43,12 @@ lib::SensorMessage& GpsSensor::get_message(){
 	GpsSensorMessage* g_message = new GpsSensorMessage();
 	
 	//データ解析(1番最新のデータ取得)
-	std::string tmpString = gps_msg_list.end();
+	auto itr = gps_msg_list.end();
+	std::string tmpString = *itr;
     list<string> result;
  
     int pos;
-    while((pos = tmpString.find_first_of(delim)) != str.npos) {
+    while((pos = tmpString.find_first_of(',')) != str.npos) {
         if(pos > 0) {
             result.push_back(str.substr(0, pos));
         }
