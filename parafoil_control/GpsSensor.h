@@ -10,12 +10,12 @@
 class GpsSensor : public lib::Sensor {
 
 public:
-	GpsSensor();
-	~GpsSensor();
-	
+	GpsSensor(){};
+	~GpsSensor(){};
+
 	void init();
 	
-	SensorMessage get_message();
+	SensorMessage get_message();//exception•K—v
 
 private:
 	boolean init_once = false;
