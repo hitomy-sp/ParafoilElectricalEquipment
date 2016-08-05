@@ -1,4 +1,4 @@
-
+﻿
 xxMain: loop -> 情報収集, アクション, NextState?
 
 Logic:
@@ -8,3 +8,4 @@ Logic:
 　nextstate
 
 
+ishizuka
