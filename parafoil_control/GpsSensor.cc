@@ -7,10 +7,10 @@ static Serial g_gps_serial(p28, p27);
 static std::list<std::string> gps_msg_list;
 
 static void recv_callback(){	
-	//ƒf[ƒ^‚ª‚È‚­‚È‚é‚Ü‚Åæ“¾‚·‚éB
+	//ãƒ‡ãƒ¼ã‚¿ãŒãªããªã‚‹ã¾ã§å–å¾—ã™ã‚‹ã€‚
+	std::string tmpString = "";
 	while(gps_serial.readable())
 	{
-		std::string tmpString = "";
 		tmpString += gps_serial.getc();
 	}
 
@@ -34,7 +34,7 @@ lib::SensorMessage& GpsSensor::get_message(){
 
 	GpsSensorMessage* g_message = new GpsSensorMessage();
 	
-	//ƒf[ƒ^‰ğÍ(1”ÔÅV‚Ìƒf[ƒ^æ“¾)
+	//ãƒ‡ãƒ¼ã‚¿è§£æ(1ç•ªæœ€æ–°ã®ãƒ‡ãƒ¼ã‚¿å–å¾—)
 	std::string tmpString = gps_msg_list.end();
     list<string> result;
  
