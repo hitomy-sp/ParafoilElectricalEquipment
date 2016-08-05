@@ -19,6 +19,7 @@ public:
 
 private:
 	boolean init_once = false;
+	list<std::string> gps_msg_list;
 	
 	void recv_callback();
 
