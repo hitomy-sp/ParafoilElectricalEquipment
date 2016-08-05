@@ -8,20 +8,16 @@ namespace lib {
 class Motor {
 
 public:
-	Motor(){ init(); };
-	virtual ~Motor(){};
-
-	virtual void init();
+	Motor(PinName p1, PinName p2);
+	virtual ~Motor();
 
 	virtual void write(float, float);
 
 private:
-	bool init_once = false;
+	Motor();
 
 	PwmOut*	pwm_out1 = NULL;
 	PwmOut*	pwm_out2 = NULL;
-
-
 };
 
 }

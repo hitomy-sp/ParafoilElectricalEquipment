@@ -1,35 +1,33 @@
 #include <list>
 #include "GpsSensor.h"
+#include "NoneSensorMessage.h"
 #include "GpsSensorMessage.h"
+
+using namespace lib;
 
 static Serial g_gps_serial(p28, p27);
 
-static std::list<std::string> gps_msg_list;
+static std::list<std::string> g_gps_msg_list;
 
 static void recv_callback(){	
 	//データがなくなるまで取得する。
 	std::string tmpString = "";
-	while(gps_serial.readable())
-	{
-		char tc = gps_serial.getc();
-		if(tc == '\n')
-		{
-			//電文1つ追加
-			gps_msg_list.push_back(tmpString);
-			
-		}else
-		{
+	while(g_gps_serial.readable()){
+		char tc = g_gps_serial.getc();
+		if(tc == '\n'){
+			tmpString.erase( --tmpString.end() );
+			g_gps_msg_list.push_back(tmpString);
+			tmpString = ""
+		}else{
 			tmpString += tc;
 		}
 	}
-	//改行コードまで送られてきていない電文は捨てる
 }
 
 void 		GpsSensor::init(){
 	
 	if(init_once == true){
 		return;
-		
 	}
 	init_once = true;
 	
@@ -38,12 +36,13 @@ void 		GpsSensor::init(){
 	return;
 }
 
-lib::SensorMessage& GpsSensor::get_message(){
+SensorMessage& GpsSensor::get_message(){
+	if (g_gps_msg_list.size() <= 0){
+		return new NoneSensorMessage();
+	}
 
-	GpsSensorMessage* g_message = new GpsSensorMessage();
-	
 	//データ解析(1番最新のデータ取得)
-	auto itr = gps_msg_list.end();
+	auto itr = g_gps_msg_list.end();
 	std::string tmpString = *itr;
     list<string> result;
  
@@ -57,7 +56,7 @@ lib::SensorMessage& GpsSensor::get_message(){
     if(str.length() > 0) {
         result.push_back(str);
     }
-	gps_msg_list.clear();
+	g_gps_msg_list.clear();
 	
 	double d_latitude = atof(result[3]);
 	double d_longitude = atof(result[5]);
@@ -65,6 +64,8 @@ lib::SensorMessage& GpsSensor::get_message(){
 	double d_course_over_ground = atof(result[7]);
 	double d_magnetic_variation = atof(result[9]);
 	int d_checksum = atoi(result[12]);
+
+	GpsSensorMessage* g_message = new GpsSensorMessage();
 
 	g_message->set_gps_msg_id(result[0])
     g_message->set_gps_utc_time(result[1]);

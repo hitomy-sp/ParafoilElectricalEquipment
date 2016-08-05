@@ -8,7 +8,6 @@ SHELL = /bin/sh
 SRCDIR = .
 
 SRCS = \
-GpsSensor.cc \
 GpsSensorMessage.cc \
 Logger.cc \
 main.cc \

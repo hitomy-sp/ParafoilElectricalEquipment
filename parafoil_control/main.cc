@@ -1,24 +1,16 @@
 #include <iostream>
+
+#include "common.h"
 #include "Logger.h"
-#include "GpsSensorMessage.h"
-
-using namespace lib;
-
+#include "DcMotor.h"
 
 int main(int argc, char *argv[]){
 
-#ifdef LOCAL_LINUX_DEBUG
-	GpsSensorMessage gsm;
-	GpsSensorMessage gsm2("abc");
+	DcMotor dc_motor(p22, p23);	
 
-	Logger* logger = Logger::get_instance();
+	dc_motor.write(1.0, 0.0);
 
-	logger->debug(gsm.to_str());
-	logger->debug(gsm2.to_str());
-	logger->info("info");
-	logger->warn("warn");
-	logger->error("error");
-#endif
+	dc_motor.write(0.0, 0.0);
 
 	return 0;
 

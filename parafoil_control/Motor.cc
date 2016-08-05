@@ -2,14 +2,24 @@
 
 using namespace lib;
 
-static PwmOut g_pwm_out1(p22);
-static PwmOut g_pwm_out2(p23);
-
 static const float pwm_period = 0.1f;
 
-void Motor::init(){
-	pwm_out1 = &g_pwm_out1;
-	pwm_out2 = &g_pwm_out2;
+Motor::Motor(PinName p1, PinName p2){
+	pwm_out1 = new PwmOut(p1);
+	pwm_out2 = new PwmOut(p2);
+
+	pwm_out1->period(pwm_period);
+	pwm_out2->period(pwm_period);
+}
+
+Motor::~Motor(){
+	if (pwm_out1 != NULL){
+		delete pwm_out1;
+	}
+
+	if (pwm_out2 != NULL){
+		delete pwm_out2;
+	}
 }
 
 void Motor::write(float f1, float f2){
