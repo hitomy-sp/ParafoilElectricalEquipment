@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GpsSensorMessage.h"
 
 std::string GpsSensorMessage::to_str(){
@@ -30,11 +31,11 @@ std::string GpsSensorMessage::get_gps_status(){
 }
 
 void 		GpsSensorMessage::set_gps_latitude(double gps_latitude){
-	this-> gps_latitude = gps_latitude;
-]
+	this->gps_latitude = gps_latitude;
+}
 
 double 		GpsSensorMessage::get_gps_latitude(){
-	reutrn gps_latitude;
+	return gps_latitude;
 }
 
 void 		GpsSensorMessage::set_gps_ns_indicator(std::string gps_ns_indicator){
@@ -59,7 +60,7 @@ void 		GpsSensorMessage::set_gps_ew_indicator(std::string gps_ew_indicator){
 
 std::string GpsSensorMessage::get_gps_ew_indicator(){
 	return gps_ew_indicator;
-]
+}
 
 void 		GpsSensorMessage::set_gps_speed_over_ground(double gps_speed_over_ground){
 	this->gps_speed_over_ground = gps_speed_over_ground;
@@ -69,12 +70,12 @@ double		GpsSensorMessage::get_gps_speed_over_ground(){
 	return gps_speed_over_ground;
 }
 
-void 		GpsSensorMessage::set_gps_couse_over_ground(double gps_couse_over_ground){
-	this->gps_couse_over_ground = gps_couse_over_ground;
+void 		GpsSensorMessage::set_gps_course_over_ground(double gps_course_over_ground){
+	this->gps_course_over_ground = gps_course_over_ground;
 }
 
-double		GpsSensorMessage::get_gps_couse_over_ground(){
-	return gps_couse_over_ground;
+double		GpsSensorMessage::get_gps_course_over_ground(){
+	return gps_course_over_ground;
 }
 
 void 		GpsSensorMessage::set_gps_date(std::string gps_date){
@@ -111,6 +112,7 @@ std::string GpsSensorMessage::get_gps_mode(){
 void 		GpsSensorMessage::set_gps_checksum(int gps_checksum){
 	this->gps_checksum = gps_checksum;
 }
+
 int			GpsSensorMessage::get_gps_checksum(){
 	return gps_checksum;
 }

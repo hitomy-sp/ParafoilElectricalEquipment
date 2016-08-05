@@ -1,6 +1,8 @@
 #ifndef _LIB_LOGGER_H_
 #define _LIB_LOGGER_H_
 
+#include <iostream>
+
 namespace lib {
 
 class Logger {
