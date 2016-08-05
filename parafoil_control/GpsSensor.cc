@@ -1,4 +1,18 @@
+#include <list>
 #include "GpsSensor.h"
+#include "GpsSensorMessage.h"
+
+static Serial g_gps_serial(p28, p27);
+
+static std::list<std::string> gps_msg_list;
+
+static void recv_callback(){	
+	//データがなくなるまで取得する。
+    while(g_gps_serial.readable())
+    {
+    	//データを取得して、リストに入れる。
+    }
+}
 
 void 		GpsSensor::init(){
 	
@@ -8,21 +22,13 @@ void 		GpsSensor::init(){
 	}
 	init_once = true;
 	
-	//27P 28Pを使用
-	gps_serial = new Serial(p28,p27)
-	
-	//CallBack設定
-	serial_gps.attach(&recv_callback);
+	g_gps_serial.attach(&recv_callback);
 	
 	return;
 }
 
-void 		GpsSensor::recv_callback(){
-	
-	//データがなくなるまで取得する。
-    while(gps_serial.readable())
-    {
-    	//データを取得して、リストに入れる。
-    }
-	
+lib::SensorMessage& GpsSensor::get_message(){
+	GpsSensorMessage* zz = new GpsSensorMessage();
+	return *zz;
 }
+

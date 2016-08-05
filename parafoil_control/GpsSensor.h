@@ -1,11 +1,9 @@
 #ifndef _GPS_SENSOR_H_
 #define _GPS_SENSOR_H_
 
-#ifdef LOCAL_LINUX_DEBUG
-#include "mbed_dummy.h"
-#else
-#include "mbed.h"
-#endif
+#include "common.h"
+#include "Sensor.h"
+#include "SensorMessage.h"
 
 class GpsSensor : public lib::Sensor {
 
@@ -15,16 +13,11 @@ public:
 
 	void init();
 	
-	SensorMessage get_message();//exception必要
+	lib::SensorMessage& get_message(); //TODO exception必要
 
 private:
-	boolean init_once = false;
-	Serial*		gps_serial = NULL;
-	list<std::string> gps_msg_list;
-	
-	void recv_callback();
-
-}
+	bool init_once = false;
+};
 
 #endif
 

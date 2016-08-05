@@ -8,11 +8,13 @@ SHELL = /bin/sh
 SRCDIR = .
 
 SRCS = \
+GpsSensor.cc \
 GpsSensorMessage.cc \
 Logger.cc \
 main.cc \
 Motor.cc \
-ParafoilControlMain.cc
+ParafoilControlMain.cc 
+
 		
 OBJS = $(SRCS:.cc=.o)
 

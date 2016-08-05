@@ -10,7 +10,7 @@ public:
 	SensorMessage(std::string msg): msg(msg){};
 	virtual ~SensorMessage(){};
 	
-	virtual std::string to_str() = 0;
+	virtual std::string to_str(){ return ""; };
 protected:
 	std::string msg = "";
 
