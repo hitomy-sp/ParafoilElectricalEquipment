@@ -19,6 +19,7 @@ public:
 
 private:
 	boolean init_once = false;
+	Serial*		gps_serial = NULL;
 	list<std::string> gps_msg_list;
 	
 	void recv_callback();
