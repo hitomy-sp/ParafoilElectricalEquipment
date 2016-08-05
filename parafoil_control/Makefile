@@ -7,16 +7,17 @@ SHELL = /bin/sh
 
 SRCDIR = .
 
-SRCS = ./main.cc \
-		./Logger.cc
+SRCS = 	Logger.cc \
+		main.cc \
+		ParafoilControlMain.cc
 		
 OBJS = $(SRCS:.cc=.o)
 
 TARGET = zdemo.bin
 
 CXX = g++
-#DEBUG = -g -rdynamic -O0 -Werror -DLOCAL_DEBUG
-DEBUG = -g -O0 -Werror -DLOCAL_DEBUG
+#DEBUG = -g -rdynamic -O0 -Werror -DLOCAL_LINUX_DEBUG
+DEBUG = -g -O0 -Werror -DLOCAL_LINUX_DEBUG
 CXXFLAGS = -Wall -fPIC -std=c++11 $(DEBUG)
 INCLUDES = -I./
 LIBS = 
