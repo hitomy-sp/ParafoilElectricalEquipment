@@ -4,9 +4,10 @@
 
 using namespace lib;
 
-#ifdef LOCAL_LINUX_DEBUG
 
 int main(int argc, char *argv[]){
+
+#ifdef LOCAL_LINUX_DEBUG
 	GpsSensorMessage gsm;
 	GpsSensorMessage gsm2("abc");
 
@@ -17,10 +18,10 @@ int main(int argc, char *argv[]){
 	logger->info("info");
 	logger->warn("warn");
 	logger->error("error");
+#endif
 
 	return 0;
 
 }
 
-#endif
 

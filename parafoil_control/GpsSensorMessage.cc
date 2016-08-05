@@ -73,21 +73,46 @@ void 		GpsSensorMessage::set_gps_couse_over_ground(double gps_couse_over_ground)
 	this->gps_couse_over_ground = gps_couse_over_ground;
 }
 
-double		GpsSensorMessage::get_gps_couse_over_ground()
+double		GpsSensorMessage::get_gps_couse_over_ground(){
+	return gps_couse_over_ground;
+}
 
-void 		GpsSensorMessage::set_gps_date(std::string);
-std::string	GpsSensorMessage::get_gps_date();
+void 		GpsSensorMessage::set_gps_date(std::string gps_date){
+	this->gps_date = gps_date;
+}
 
-void 		GpsSensorMessage::set_gps_magnetic_variation(double);
-double		GpsSensorMessage::get_gps_magnetic_variation();
+std::string	GpsSensorMessage::get_gps_date(){
+	return gps_date;
+}
 
-void 		GpsSensorMessage::set_gps_magnetic_ew_indicator(std::string);
-std::string	GpsSensorMessage::get_gps_magnetic_ew_indicator();
+void 		GpsSensorMessage::set_gps_magnetic_variation(double gps_magnetic_variation){
+	this->gps_magnetic_variation = gps_magnetic_variation;
+}
 
-void 		GpsSensorMessage::set_gps_mode(std::string);
-std::string GpsSensorMessage::get_gps_mode();
+double		GpsSensorMessage::get_gps_magnetic_variation(){
+	return gps_magnetic_variation;
+}
 
-void 		GpsSensorMessage::set_gps_checksum(int);
-int			GpsSensorMessage::get_gps_checksum();
+void 		GpsSensorMessage::set_gps_magnetic_ew_indicator(std::string gps_magnetic_ew_indicator){
+	this->gps_magnetic_ew_indicator = gps_magnetic_ew_indicator;
+}
+
+std::string	GpsSensorMessage::get_gps_magnetic_ew_indicator(){
+	return gps_magnetic_ew_indicator;
+}
+
+void 		GpsSensorMessage::set_gps_mode(std::string gps_mode){
+	this->gps_mode = gps_mode;
+}
+std::string GpsSensorMessage::get_gps_mode(){
+	return gps_mode;
+}
+
+void 		GpsSensorMessage::set_gps_checksum(int gps_checksum){
+	this->gps_checksum = gps_checksum;
+}
+int			GpsSensorMessage::get_gps_checksum(){
+	return gps_checksum;
+}
 
 

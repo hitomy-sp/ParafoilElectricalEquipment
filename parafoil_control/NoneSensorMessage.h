@@ -7,7 +7,7 @@ class NoneSensorMessage : public SensorMessage {
 
 public:
 	NoneSensorMessage(){};
-	NoneSensorMessage(std::string msg){};
+	NoneSensorMessage(std::string msg): lib::SensorMessage(msg){};
 	~NoneSensorMessage(){};
 	
 	std::string to_str(){ return msg; };

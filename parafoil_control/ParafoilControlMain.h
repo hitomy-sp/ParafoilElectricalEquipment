@@ -10,8 +10,9 @@ public:
 	void operator()();
 	void execute();
 
-private:
 	void init();
+
+private:
 
 };
 
